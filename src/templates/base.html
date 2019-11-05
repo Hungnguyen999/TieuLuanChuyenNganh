@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Base.html này override content của trang homepage.html</title>
+        {% include 'base/css.html' %}
+        {% block base_head %}
+        
+        {% endblock %}
+</head>
+<body>
+    {% include 'base/navbar.html' with brand_name="eCommerce" %}
+    {% block content %}{% endblock %}
+
+    {% include 'base/js.html' %}
+    <h1>Base template</h1>
+    <p style="color: rebeccapurple;">Trang homepage sẽ được viết dưới dạng override . Trang base html sẽ chỉ chứa cái thành phần phía trên )
+        Thành phần này được viết và quy định trong trang home_page.html . chúng ta chỉ việc gọi ra trong base.html thì khi hiển thị base.html sẽ hiển thị phần
+        được override này của home_page.html
+    </p>
+</body>
+</html>

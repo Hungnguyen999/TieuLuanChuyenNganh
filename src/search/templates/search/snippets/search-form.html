@@ -1,0 +1,12 @@
+<form method='GET' action='{% url "search:query" %}' class="form my-2 my-lg-0">
+    <div class="input-group">
+    <input class="form-control" type="search" name="q" placeholder="Search" aria-label="Search">
+    <span class="input-group-btn">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </span>
+    </div>
+</form>
+<!--Cái {% url "search:query" %}: Mục đích là định hướng cho form đi tới đường dẫn nào . 
+key: query lấy từ url.py query là name của url.py search
+key: search lấy từ url.py là namespace của search/ url-->
+<!--SAu đó đặt tên cho in put name="q"-->

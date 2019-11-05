@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+                <h1>{{ object.title }}</h1><br/>
+                <h3>{{ "Người đăng: Nguyễn Duy Hưng"|title}}</h3>
+                <h3>{{ object.timestamp|timesince }} ago</h3>
+                {{ object.description|linebreaks }} <br/>
+                {{ object.image.url }} <br/>
+                {% if object.image %}
+                <img src='{{ object.image.url }}' class="img-fluid">
+                {% endif %}
+                
+        </div>
+    </div>
+</div>
+{% endblock %}
+Xin chào Nguyễn Duy Hưng

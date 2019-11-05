@@ -1,0 +1,15 @@
+<div class="card" style="width: 20rem;">
+        {% if instance.image %} <!--Kiểm tra xem trong cái instance nhận được từ list.html image có tồn tại không -->
+        <a href="{{ instance.get_absolute_url }}">   <!--set link cho image-->
+            <img src="{{ instance.image.url }}" class="card-img-top" alt="{{ instance.title }} logo">
+        </a>  
+        {% endif %}
+    <div class="card-body">
+        <h5 class="card-title">{{ instance.title }}</h5>
+        <p class="card-text">{{ instance.description|truncatewords:30 }}</p>  <!--Truncatewords là 1 hàm của django dùng để giới hạn số từ văn bản-->
+        <a href="{{ instance.get_absolute_url }}" class="btn btn-primary">Chi tiết</a>  <!--Hàm này ở trong models.py-->
+        <a href="#" class="btn btn-warning">Yêu thích</a>
+        <a href="#" class="btn btn-danger">Mua</a>
+        <a href="{% url 'products:detail' slug=instance.slug %}" class="btn btn-success">URL shortcut</a>
+    </div>
+</div>

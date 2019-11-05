@@ -1,0 +1,4 @@
+body {
+    color: chartreuse;
+}
+/*Cái này xong thì chạy lệnh python manage.py collectstatic sẽ tự động addfile vào trong static_root*/

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+<title>Home Page template</title>
+
+{% block base_head %}
+<link href="{% static 'css/main.css' %}" rel="stylesheet">
+{% endblock %}
+
+{%block content %}
+<div class="text-center">
+    <h1>{{title}}</h1>
+    <h1>Hello con bò cườiiiiiiiii</h1>
+    <img src="{% static 'img/team-1.jpg' %}"
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6-12">  
+            <!--Contact Form-->
+        <form action="" method="POST">{%csrf_token%}
+                <legend>Contact</legend>
+                {{form}}
+        </form>
+        <form action="" method="POST">{%csrf_token%}
+            <legend>Login</legend>
+            <p>{{content}}</p>
+            <div class="form-group">
+                <label for="">Đây là trang homepage với nhiều tính năng</label>
+                <input type="text" class="form-control" id="" placeholder="Name" name="fullname">
+                <input type="email" class="form-control" id="" placeholder="Email" name="email">
+                <textarea name="content" class="form-control" placeholder="Your content"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            {% if request.user.is_authenticated %}
+            <!--Premium content-->
+            <div class="row">
+                <div class="col">
+                    <h1>{{premium_content}}</h1>
+                </div>
+            </div>
+            {% endif %}
+        </form>             
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Homepage</title> 
+    </head>
+    <body>  
+
+    </body>
+</html>

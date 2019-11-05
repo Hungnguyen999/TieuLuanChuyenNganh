@@ -1,0 +1,67 @@
+{% extends "base.html" %}  <!--LUU6 Ý : NÊN ĐỂ EXTEND Ở LINE 1-->
+{% load static %}
+
+
+{% block content %}
+<!-- {% include 'base/navbar.html' with brand_name=brandname %}  Truyền thông qua context -->
+<div class="text-center">
+    <h1>{{title}}</h1>
+    <h1>Hello we are working</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6-12">  
+            <!--Contact Form-->
+        <form action="" method="POST">{%csrf_token%}
+                <legend>Contact</legend>
+                {{form}}
+        </form>
+        <form action="" method="POST">{%csrf_token%}
+            <legend>Login</legend>
+            <p>{{content}}</p>
+            <div class="form-group">
+                <label for="">Login Form</label>
+                <input type="text" class="form-control" id="" placeholder="Name" name="fullname">
+                <input type="email" class="form-control" id="" placeholder="Email" name="email">
+                <textarea name="content" class="form-control" placeholder="Your content"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            {% if request.user.is_authenticated %}   <!--Kiểm tra xem nếu như trang admin đang được đăng nhập thì sẽ bonus thêm thông tin  -->
+            <!--Premium content-->
+            <div class="row">
+                <div class="col">
+                    <h1>{{premium_content}}</h1>   <!--Cái này nó là 1 thành phần trong context ở thư mục ecommerce/view.py dòng 29 ấy-->
+                </div>
+            </div>
+            {% endif %}
+        </form>             
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Contact Page</title>
+            {% include 'base/css.html' %}
+        <!-- Bootstrap CSS -->
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        <link href="{% static 'lib/lib_contact/bootstrap/css/bootstrap.min.css' %}">
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        
+ 
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+</html>
